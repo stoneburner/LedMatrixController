@@ -38,6 +38,6 @@
         </view>
     </objects>
     <resources>
-        <image name="start_image" width="1536" height="1536"/>
+        <image name="start_image" width="1800" height="1800"/>
     </resources>
 </document>
