@@ -10,7 +10,9 @@ import UIKit
 import Alamofire
 
 class ViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
-
+    
+    let cellbackground = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
+    
     var images = [
         "clear",
         "accept",
@@ -66,13 +68,13 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
         return images.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PixelButtonViewCell
-        //cell.backgroundColor = UIColor.blackColor()
-        let imageName = images[indexPath.item];
-        cell.name = imageName;
-        cell.imageView.image = UIImage(named: imageName);
-        // Configure the cell
+        cell.backgroundColor = cellbackground
+        let imageName = images[indexPath.item]
+        cell.name = imageName
+        cell.imageView.image = UIImage(named: imageName)
         return cell
     }
     
