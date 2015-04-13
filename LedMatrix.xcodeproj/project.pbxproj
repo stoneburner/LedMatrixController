@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1976BE1ADC53B10087F4DC /* SwiftPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1976BB1ADC53B10087F4DC /* SwiftPrompts.swift */; };
+		5A1976BF1ADC53B10087F4DC /* SwiftPromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1976BC1ADC53B10087F4DC /* SwiftPromptsView.swift */; };
+		5A1976C01ADC53B10087F4DC /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1976BD1ADC53B10087F4DC /* UIImageEffects.swift */; };
 		5AF047951ADB9EE7009979C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF047941ADB9EE7009979C0 /* AppDelegate.swift */; };
 		5AF047971ADB9EE7009979C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF047961ADB9EE7009979C0 /* ViewController.swift */; };
 		5AF0479A1ADB9EE7009979C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF047981ADB9EE7009979C0 /* Main.storyboard */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		56ECF83962F82E2737E4B7E4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1976BB1ADC53B10087F4DC /* SwiftPrompts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPrompts.swift; sourceTree = "<group>"; };
+		5A1976BC1ADC53B10087F4DC /* SwiftPromptsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPromptsView.swift; sourceTree = "<group>"; };
+		5A1976BD1ADC53B10087F4DC /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		5AF0478F1ADB9EE7009979C0 /* LedMatrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedMatrix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF047931ADB9EE7009979C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AF047941ADB9EE7009979C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				5AF047961ADB9EE7009979C0 /* ViewController.swift */,
+				5A1976BB1ADC53B10087F4DC /* SwiftPrompts.swift */,
+				5A1976BC1ADC53B10087F4DC /* SwiftPromptsView.swift */,
+				5A1976BD1ADC53B10087F4DC /* UIImageEffects.swift */,
 				5AF047981ADB9EE7009979C0 /* Main.storyboard */,
 				5AF047B41ADBA1D4009979C0 /* PixelButtonViewCell.swift */,
 				5AF0479B1ADB9EE7009979C0 /* Images.xcassets */,
@@ -292,7 +301,10 @@
 			files = (
 				5AF047971ADB9EE7009979C0 /* ViewController.swift in Sources */,
 				5AF047951ADB9EE7009979C0 /* AppDelegate.swift in Sources */,
+				5A1976C01ADC53B10087F4DC /* UIImageEffects.swift in Sources */,
+				5A1976BF1ADC53B10087F4DC /* SwiftPromptsView.swift in Sources */,
 				5AF047B51ADBA1D4009979C0 /* PixelButtonViewCell.swift in Sources */,
+				5A1976BE1ADC53B10087F4DC /* SwiftPrompts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

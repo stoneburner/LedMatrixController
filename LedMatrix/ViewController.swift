@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
+class ViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, SwiftPromptsProtocol {
     
     let cellbackground = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
     
@@ -49,6 +49,38 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
         "user_female"
     ];
     
+    var prompt = SwiftPromptsView()
+    
+    func showError(message:String) {
+        //Create an instance of SwiftPromptsView and assign its delegate
+        prompt = SwiftPromptsView(frame: self.view.bounds)
+        prompt.delegate = self
+        
+        //Set the properties for the background
+        prompt.setBlurringLevel(10.0)
+        prompt.setColorWithTransparency(UIColor(red:0.38, green:0.38, blue:0.38, alpha:0.3));
+        
+        //Set the properties of the promt
+        prompt.setPromtHeader("Error")
+        prompt.setPromptTopBarVisibility(true)
+        prompt.setPromptBottomBarVisibility(false)
+        prompt.setPromptTopLineVisibility(false)
+        prompt.setPromptBottomLineVisibility(true)
+        prompt.setPromptContentText(message)
+        prompt.setPromptHeaderBarColor(UIColor(red:0.67, green:0.79, blue:0.27, alpha:1))
+        prompt.setPromptHeaderTxtColor(UIColor.blackColor())
+        prompt.setPromptContentTxtColor(UIColor.blackColor())
+        prompt.setPromptBottomLineColor(UIColor(red:0.38, green:0.38, blue:0.38, alpha:1))
+        prompt.setMainButtonText("ok")
+        
+        self.view.addSubview(prompt)
+    }
+    
+    func clickedOnTheMainButton() {
+        println("Clicked on the main button")
+        prompt.dismissPrompt()
+    }
+    
     private let reuseIdentifier = "pixelcell"
     
     override func viewDidLoad() {
@@ -79,7 +111,14 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        Alamofire.request(.GET, "http://192.168.178.84:3000/pic/\(images[indexPath.item])/10");
+        Alamofire.request(.GET, "http://192.168.178.84:3000/pic/\(images[indexPath.item])").response { (request, response, data, error) in
+            println(request)
+            println(response)
+            println(error)
+            if (error != nil) {
+                self.showError("The LED Matrix is not responding!");
+            }
+        }
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
