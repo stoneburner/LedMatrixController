@@ -7,19 +7,82 @@
 //
 
 import UIKit
+import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
 
+    var images = [
+        "clear",
+        "accept",
+        "cancel",
+        "fire",
+        "error",
+        "stop",
+        "color_swatch",
+        "color_wheel",
+        "help",
+        "rainbow",
+        "lightbulb",
+        "lightning",
+        "refresh",
+        "stop",
+        "thumb_down",
+        "thumb_up",
+        "tick",
+        "weather_clouds",
+        "weather_cloudy",
+        "weather_lightning",
+        "weather_rain",
+        "weather_snow",
+        "weather_sun",
+        "heart",
+        "emoticon_grin",
+        "emoticon_happy",
+        "emoticon_smile",
+        "emoticon_surprised",
+        "emoticon_unhappy",
+        "emoticon_waii",
+        "emoticon_wink",
+        "user",
+        "user_female"
+    ];
+    
+    private let reuseIdentifier = "pixelcell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    // MARK: UICollectionViewDataSource
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PixelButtonViewCell
+        //cell.backgroundColor = UIColor.blackColor()
+        let imageName = images[indexPath.item];
+        cell.name = imageName;
+        cell.imageView.image = UIImage(named: imageName);
+        // Configure the cell
+        return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        Alamofire.request(.GET, "http://192.168.178.84:3000/pic/\(images[indexPath.item])/10");
+    }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.Default
+    }
 
 }
 
