@@ -16,9 +16,11 @@ class PixelButtonViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
     
+    // draw rounded edges in white over the imageview
     override func drawRect(rect: CGRect) {
         super.drawRect(rect);
         
+        // paintcode stuff
         var bezierPath = UIBezierPath()
         bezierPath.moveToPoint(CGPointMake(64, 0))
         bezierPath.addCurveToPoint(CGPointMake(64, 6.11), controlPoint1: CGPointMake(64, 0), controlPoint2: CGPointMake(64, 2.34))
