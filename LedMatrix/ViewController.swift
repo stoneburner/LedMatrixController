@@ -30,7 +30,7 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
         "stop",
         "thumb_down",
         "thumb_up",
-        "tick",
+        "ok",
         "weather_clouds",
         "weather_cloudy",
         "weather_lightning",
