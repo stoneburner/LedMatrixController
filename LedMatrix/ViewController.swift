@@ -27,7 +27,6 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
         "lightbulb",
         "lightning",
         "refresh",
-        "stop",
         "thumb_down",
         "thumb_up",
         "ok",
@@ -110,8 +109,15 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        Alamofire.request(.GET, "http://192.168.178.84:3000/pic/\(images[indexPath.item])").response { (request, response, data, error) in
+    var alamofireManager : Alamofire.Manager?
+    
+    func showImageOnLedmatrix(image:String) {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForResource = 2 // seconds
+        
+        self.alamofireManager = Alamofire.Manager(configuration: configuration)
+
+        self.alamofireManager!.request(.GET, "http://192.168.178.84:3000/pic/\(image)").response { (request, response, data, error) in
             println(request)
             println(response)
             println(error)
@@ -119,6 +125,11 @@ class ViewController: UICollectionViewController, UITextFieldDelegate, UICollect
                 self.showError("The LED Matrix is not responding!");
             }
         }
+    }
+    
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        showImageOnLedmatrix(images[indexPath.item]);
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
